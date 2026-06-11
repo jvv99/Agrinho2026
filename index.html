@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agroforte | Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <strong>AGROFORTE</strong> <span>Futuro Sustentável</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="btn-scroller">Início</a></li>
+                    <li><a href="#sobre" class="btn-scroller">Sobre Nós</a></li>
+                    <li><a href="#solucoes" class="btn-scroller">Soluções</a></li>
+                    <li><a href="#jogo" class="btn-scroller">Desafio Virtual</a></li>
+                    <li><a href="#contato" class="btn-scroller">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Semeando inovação, colhendo um amanhã equilibrado.</h1>
+            <p>Junte-se a nós na revolução do agronegócio consciente e tecnológico.</p>
+            <a href="#solucoes" class="btn-principal btn-scroller">Conheça Nossas Soluções</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre-section">
+        <div class="container sobre-flex">
+            <div class="sobre-texto">
+                <h2>Sobre a Agroforte</h2>
+                <p>Nascemos com o propósito de unir a força do campo à inteligência da tecnologia moderna. Acreditamos que a produção de alimentos e o respeito ao meio ambiente não são caminhos opostos, mas sim o único futuro possível.</p>
+                <p>Nossa missão é empoderar produtores rurais de todos os portes com ferramentas de alta precisão, reduzindo o desperdício de recursos naturais e potencializando a lucratividade da terra.</p>
+                <div class="pilares">
+                    <div class="pilar-item">
+                        <strong>Preservação</strong>
+                        <p>Foco total na regeneração do solo e economia de água.</p>
+                    </div>
+                    <div class="pilar-item">
+                        <strong>Inovação</strong>
+                        <p>Uso prático de Drones, IoT e Inteligência Artificial.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sobre-imagem">
+                <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80" alt="Tecnologia no Campo">
+            </div>
+        </div>
+    </section>
+
+    <section id="solucoes" class="container secao">
+        <h2>Nossas Soluções Tecnológicas</h2>
+        <p style="margin-bottom: 20px; color: #666;">Clique em qualquer solução para ler os detalhes completos.</p>
+        
+        <div class="cards-grid">
+            <div class="card" onclick="abrirModal('drone')">
+                <h3>Monitoramento por Drones</h3>
+                <p>Análise de lavoura em tempo real para otimização de insumos e redução de impacto ambiental.</p>
+                <span class="saiba-mais">Clique para saber mais →</span>
+            </div>
+            
+            <div class="card" onclick="abrirModal('energia')">
+                <h3>Energia Renovável</h3>
+                <p>Implementação de matrizes solares e eólicas para total autonomia energética no campo.</p>
+                <span class="saiba-mais">Clique para saber mais →</span>
+            </div>
+            
+            <div class="card" onclick="abrirModal('gestao')">
+                <h3>Gestão Inteligente</h3>
+                <p>Sistemas integrados de dados para controle de irrigação e saúde do solo.</p>
+                <span class="saiba-mais">Clique para saber mais →</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="jogo" class="jogo-section">
+        <div class="container">
+            <h2>Desafio AgroSustentável 🚜</h2>
+            <p class="sub-jogo">Gerencie sua própria fazenda! Faça as escolhas certas para lucrar sem destruir o planeta.</p>
+            
+            <div class="jogo-container">
+                <div class="jogo-status">
+                    <div>💰 Lucro: <span id="status-lucro" class="status-val">R$ 10.000</span></div>
+                    <div>🌱 Sustentabilidade: <span id="status-eco" class="status-val">100%</span></div>
+                </div>
+                
+                <div id="jogo-tela-principal">
+                    <p id="jogo-pergunta" class="jogo-pergunta">Carregando cenário...</p>
+                    <div id="jogo-opcoes" class="jogo-opcoes-container">
+                        </div>
+                </div>
+
+                <div id="jogo-tela-final" style="display: none;">
+                    <h3 id="jogo-resultado-titulo">Resultado Final</h3>
+                    <p id="jogo-feedback">Mensagem de avaliação...</p>
+                    <button class="btn-principal" onclick="reiniciarJogo()">Jogar Novamente</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalSolucao" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal" onclick="fecharModal()">&times;</span>
+            <h2 id="modalTitulo">Título da Solução</h2>
+            <div id="modalTexto">Descrição detalhada...</div>
+        </div>
+    </div>
+
+    <section id="contato" class="contato-section">
+        <div class="container">
+            <h2>Fale Conosco</h2>
+            <p>Quer levar a sustentabilidade para a sua produção? Envie uma mensagem.</p>
+            
+            <form action="http://localhost:8080/api/contato" method="POST" class="form-contato">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos te ajudar?"></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Agroforte Futuro Sustentável. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 1. ROLAGEM SUAVE UNIVERSAL
+        // ==========================================
+        document.querySelectorAll('.btn-scroller').forEach(botao => {
+            botao.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href'); 
+                const targetSection = document.querySelector(targetId);
+                const headerOffset = 90; 
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+              
+                window.scrollTo({
+                     top: offsetPosition,
+                     behavior: "smooth"
+                });
+            });
+        });
+
+        // ==========================================
+        // 2. MODAL DAS SOLUÇÕES
+        // ==========================================
+        const informacoesSolucoes = {
+            drone: {
+                titulo: "Monitoramento Avançado por Drones",
+                texto: "<p>Nossa tecnologia de monitoramento utiliza drones de última geração equipados com câmeras multiespectrais. Eles sobrevoam a propriedade gerando mapas de calor e índices de vegetação de alta precisão.</p><p><b>Benefícios Principais:</b></p><ul><li><b>Detecção Precoce:</b> Identificação de pragas, doenças ou estresse hídrico antes que fiquem visíveis a olho nu.</li><li><b>Economia de Insumos:</b> Aplicação localizada de defensivos e fertilizantes apenas onde há real necessidade, gerando economia de até 40%.</li><li><b>Histórico de Safra:</b> Relatórios detalhados que ajudam a prever a produtividade final com margem mínima de erro.</li></ul>"
+            },
+            energia: {
+                titulo: "Matrizes de Energia Renovável no Campo",
+                texto: "<p>Transformamos propriedades agrícolas tradicionais em ecossistemas autossustentáveis energeticamente através da integração de painéis solares fotovoltaicos e microgeradores eólicos.</p><p><b>Benefícios Principais:</b></p><ul><li><b>Custo Zero de Energia:</b> Redução drástica ou eliminação total da conta de luz da fazenda após o período de retorno do investimento.</li><li><b>Resiliência Operacional:</b> Sistemas de armazenamento em baterias garantem que ordenhadeiras, sistemas de irrigação e resfriadores nunca parem, mesmo em quedas de energia da rede pública.</li><li><b>Selo Verde:</b> Agrega valor comercial direto aos seus produtos, abrindo portas para mercados internacionais exigentes.</li></ul>"
+            },
+            gestao: {
+                titulo: "Gestão Inteligente e Big Data Agrícola",
+                texto: "<p>Conectamos o solo, as plantas e o clima diretamente ao seu smartphone ou computador. Usando sensores IoT (Internet das Coisas) espalhados pela fazenda, coletamos dados vitais a cada segundo.</p><p><b>Benefícios Principais:</b></p><ul><li><b>Irrigação de Precisão:</b> O sistema aciona os pivôs automaticamente apenas quando o solo atinge o nível crítico de umidade, evitando o desperdício bilionário de água potável.</li><li><b>Análise Preditiva do Solo:</b> Monitoramento contínuo dos níveis de nitrogênio, fósforo, potássio e pH da terra.</li><li><b>Tomada de Decisão:</b> Painéis visuais simples que transformam números complexos em ações claras: 'Hora exata de plantar', 'Janela ideal de colheita'.</li></ul>"
+            }
+        };
+
+        function abrirModal(chaveSolucao) {
+            const modal = document.getElementById('modalSolucao');
+            const dados = informacoesSolucoes[chaveSolucao];
+            document.getElementById('modalTitulo').innerText = dados.titulo;
+            document.getElementById('modalTexto').innerHTML = dados.texto;
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById('modalSolucao');
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; 
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalSolucao');
+            if (event.target == modal) { fecharModal(); }
+        }
+
+        // ==========================================
+        // 3. CÓDIGO DO JOGO (ENGINE)
+        // ==========================================
+        let lucro = 10000;
+        let eco = 100;
+        let rodadaAtual = 0;
+
+        const cenarios = [
+            {
+                pergunta: "Rodada 1: Pragas surgiram na sua plantação de soja! O que você faz?",
+                opcoes: [
+                    { texto: "Espalhar agrotóxico comum em toda a fazenda rapidamente.", lucro: 5000, eco: -40 },
+                    { texto: "Usar Monitoramento por Drones Agroforte para aplicar defensivo biológico apenas onde precisa.", lucro: 3500, eco: 10 }
+                ]
+            },
+            {
+                pergunta: "Rodada 2: A conta de energia da fazenda disparou com os sistemas de irrigação e resfriamento. Como proceder?",
+                opcoes: [
+                    { texto: "Manter o uso da rede elétrica local fóssil e torcer para a tarifa baixar.", lucro: -2000, eco: -10 },
+                    { texto: "Instalar placas de Energia Solar e eólica integradas da Agroforte.", lucro: 6000, eco: 20 }
+                ]
+            },
+            {
+                pergunta: "Rodada 3: Uma forte seca foi prevista para a região nas próximas semanas. Qual sua estratégia?",
+                opcoes: [
+                    { texto: "Ligar os pivôs de água no máximo o dia todo para garantir a umidade por segurança.", lucro: -1000, eco: -30 },
+                    { texto: "Utilizar os Sensores de Gestão Inteligente Agroforte para irrigar apenas quando o solo pedir.", lucro: 4500, eco: 15 }
+                ]
+            }
+        ];
+
+        function atualizarStatusTela() {
+            document.getElementById('status-lucro').innerText = "R$ " + lucro.toLocaleString('pt-BR');
+            document.getElementById('status-eco').innerText = eco + "%";
+            
+            // Mudar cor de aviso se a ecologia estiver baixa
+            if (eco < 50) {
+                document.getElementById('status-eco').style.color = "#e74c3c";
+            } else {
+                document.getElementById('status-eco').style.color = "#27ae60";
+            }
+        }
+
+        function carregarRodada() {
+            if (rodadaAtual < cenarios.length) {
+                const cenario = cenarios[rodadaAtual];
+                document.getElementById('jogo-pergunta').innerText = cenario.pergunta;
+                
+                const containerOpcoes = document.getElementById('jogo-opcoes');
+                containerOpcoes.innerHTML = ""; // Limpa escolhas anteriores
+                
+                cenario.opcoes.forEach(opcao => {
+                    const botao = document.createElement('button');
+                    botao.className = "btn-opcao-jogo";
+                    botao.innerText = opacity = opcao.texto;
+                    botao.onclick = () => fazerEscolha(opcao.lucro, opcao.eco);
+                    containerOpcoes.appendChild(botao);
+                });
+            } else {
+                finalizarJogo();
+            }
+        }
+
+        function fazerEscolha(modLucro, modEco) {
+            lucro += modLucro;
+            eco += modEco;
+            if (eco > 100) eco = 100;
+            if (eco < 0) eco = 0;
+            
+            rodadaAtual++;
+            atualizarStatusTela();
+            carregarRodada();
+        }
+
+        function finalizarJogo() {
+            document.getElementById('jogo-tela-principal').style.display = "none";
+            document.getElementById('jogo-tela-final').style.display = "block";
+            
+            let titulo = "";
+            let feedback = "";
+            
+            if (eco >= 80 && lucro >= 15000) {
+                titulo = "Parabéns! Fazendeiro do Futuro! 🌟🌱";
+                feedback = `Você acumulou R$ ${lucro.toLocaleString('pt-BR')} e manteve a saúde do planeta em ${eco}%. Sua fazenda é um modelo perfeito de Agroforte sustentável!`;
+            } else if (eco < 50) {
+                titulo = "Alerta Ambiental! ⚠️";
+                feedback = `Você conseguiu dinheiro (R$ ${lucro.toLocaleString('pt-BR')}), mas sua sustentabilidade caiu para ${eco}%. A terra ficou esgotada e imprópria para as próximas safras. Tente usar as soluções Agroforte na próxima vez!`;
+            } else {
+                titulo = "Bom trabalho, mas pode melhorar! 👍";
+                feedback = `Seu saldo final foi de R$ ${lucro.toLocaleString('pt-BR')} com ${eco}% de sustentabilidade. O equilíbrio está quase lá, experimente investir mais em tecnologia limpa!`;
+            }
+            
+            document.getElementById('jogo-resultado-titulo').innerText = titulo;
+            document.getElementById('jogo-feedback').innerText = feedback;
+        }
+
+        function reiniciarJogo() {
+            lucro = 10000;
+            eco = 100;
+            rodadaAtual = 0;
+            document.getElementById('jogo-tela-principal').style.display = "block";
+            document.getElementById('jogo-tela-final').style.display = "none";
+            atualizarStatusTela();
+            carregarRodada();
+        }
+
+        // Inicia o jogo automaticamente ao abrir a página
+        atualizarStatusTela();
+        carregarRodada();
+    </script>
+</body>
+</html>
